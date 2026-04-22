@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, watch } from "vue"
+import { reactive, ref, watch, watchEffect } from "vue"
 
 // 基础数据
 
@@ -49,13 +49,11 @@ const changeAllCar = () => {
 watch(()=>person.name,(newval,oldval)=>{
   console.log(newval,oldval)
 })
-const close = watch([person.car,()=>person.age],(newval,oldval)=>{
-  console.log(newval,oldval)
-  if(person.age>19){
-    console.log(close)
-    close()
+watchEffect(()=>{
+  if(person.age>20||person.name!=="xixi"){
+    console.log("你变得弱小了老东西")
   }
-},{deep:true,immediate:true})
+})
 </script>
 
 <style scoped>

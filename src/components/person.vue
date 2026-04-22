@@ -1,23 +1,22 @@
 <template>
-<h2 ref="xi">你好</h2>  
+<h2 ref="xi">上海</h2>  
 <button @click="log">点我</button>
-<Person ref="buxixi"/>
 </template>
 
 <script setup>
 import {ref} from "vue"
-import Person from "./components/person.vue";
 let xi = ref()
-let buxixi = ref()
+let a = ref(1)
+let b = ref(2)
 function log(){
 console.log(xi.value)
-console.log(buxixi.value)
 }
+defineExpose({a,b})
 </script>
 
 <style scoped>
 .box {
-  background: #7fa8c3;
+  background: tomato;
   padding: 20px;
   border-radius: 10px;
   width: 500px;
